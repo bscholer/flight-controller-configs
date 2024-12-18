@@ -86,7 +86,7 @@ aux 4 10 3 1700 2100
 
 # master
 set gyro_zero_y = -2
-set gyro_zero_z = 4
+set gyro_zero_z = 5
 set rssi_adc_channel = 3
 set airspeed_adc_channel = 4
 set acc_hardware = ICM42605
@@ -191,8 +191,8 @@ battery_profile 3
 
 
 # restore original profile selection
-mixer_profile 2
-profile 2
+mixer_profile 1
+profile 1
 battery_profile 1
 
 # save configuration
