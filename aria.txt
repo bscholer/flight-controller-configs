@@ -133,8 +133,8 @@ set mixer_pid_profile_linking = ON
 
 mmix reset
 
-mmix 0  1.000  0.000  0.000  0.000
-mmix 1  1.000  0.000  0.000  0.000
+mmix 0  1.000  0.000  0.000  0.300
+mmix 1  1.000  0.000  0.000 -0.300
 
 # Mixer: servo mixer
 smix reset
@@ -175,6 +175,10 @@ smix 4 2 0 50 0 -1
 smix 5 3 0 50 0 -1
 smix 6 1 38 60 0 -1
 smix 7 4 38 -60 0 -1
+smix 8 5 1 25 0 -1
+smix 9 5 2 -25 0 -1
+smix 10 6 1 -25 0 -1
+smix 11 6 2 -25 0 -1
 
 # profile
 profile 1
