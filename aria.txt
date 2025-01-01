@@ -101,6 +101,8 @@ osd_layout 0 109 44 4 V
 # OSD: custom elements
 
 # master
+set gyro_main_lpf_hz = 80
+set dynamic_gyro_notch_mode = 3D
 set gyro_zero_y = -2
 set gyro_zero_z = 3
 set rssi_adc_channel = 3
@@ -109,7 +111,9 @@ set acc_hardware = ICM42605
 set align_mag = CW270FLIP
 set mag_hardware = NONE
 set baro_hardware = SPL06
+set motor_pwm_protocol = DSHOT300
 set failsafe_procedure = RTH
+set servo_lpf_hz = 30
 set small_angle = 180
 set applied_defaults = 3
 set gps_provider = UBLOX7
@@ -117,6 +121,12 @@ set gps_sbas_mode = WAAS
 set gps_ublox_use_galileo = ON
 set gps_ublox_use_beidou = ON
 set gps_ublox_use_glonass = ON
+set airmode_type = STICK_CENTER_ONCE
+set nav_disarm_on_landing = OFF
+set nav_wp_max_safe_distance = 500
+set nav_rth_allow_landing = FS_ONLY
+set nav_fw_control_smoothness = 2
+set nav_fw_launch_max_altitude = 5000
 set osd_video_system = AVATAR
 set i2c_speed = 800KHZ
 
@@ -183,6 +193,15 @@ smix 11 6 2 -25 0 -1
 # profile
 profile 1
 
+set fw_p_pitch = 15
+set fw_ff_pitch = 80
+set fw_p_roll = 15
+set max_angle_inclination_rll = 450
+set dterm_lpf_hz = 10
+set fw_turn_assist_pitch_gain =  0.400
+set d_boost_min =  1.000
+set d_boost_max =  1.000
+set fw_level_pitch_trim =  5.000
 set rc_expo = 30
 set rc_yaw_expo = 30
 set roll_rate = 18
@@ -192,11 +211,23 @@ set yaw_rate = 3
 # profile
 profile 2
 
+set dterm_lpf_hz = 60
+set dterm_lpf_type = PT3
+set mc_iterm_relax = RPY
+set d_boost_min =  0.800
+set d_boost_max =  1.200
+set d_boost_gyro_delta_lpf_hz = 60
+set antigravity_gain =  2.000
+set antigravity_accelerator =  5.000
+set smith_predictor_delay =  1.500
+set tpa_rate = 20
+set tpa_breakpoint = 1200
+set tpa_on_yaw = ON
 set rc_expo = 30
 set rc_yaw_expo = 30
 set roll_rate = 18
-set pitch_rate = 9
-set yaw_rate = 3
+set pitch_rate = 18
+set yaw_rate = 9
 
 # profile
 profile 3
@@ -216,8 +247,8 @@ battery_profile 3
 
 
 # restore original profile selection
-mixer_profile 2
-profile 2
+mixer_profile 1
+profile 1
 battery_profile 1
 
 # save configuration
