@@ -53,7 +53,6 @@ blackbox -PEAKS_Y
 
 # Ports
 serial 4 33554432 115200 115200 0 115200
-serial 5 0 115200 115200 0 115200
 
 # LEDs
 led 0 0,0::G:0
@@ -86,10 +85,20 @@ osd_layout 0 1 21 0 V
 osd_layout 0 3 8 6 V
 osd_layout 0 4 8 6 V
 osd_layout 0 7 25 16 V
+osd_layout 0 9 2 2 V
+osd_layout 0 11 3 3 V
+osd_layout 0 12 3 4 V
+osd_layout 0 13 45 15 V
+osd_layout 0 14 3 11 V
 osd_layout 0 15 3 0 V
+osd_layout 0 22 48 13 V
+osd_layout 0 24 44 14 V
 osd_layout 0 28 3 17 V
 osd_layout 0 30 13 17 V
 osd_layout 0 32 27 0 V
+osd_layout 0 38 27 1 V
+osd_layout 0 40 44 16 V
+osd_layout 0 97 41 17 V
 osd_layout 0 109 44 4 V
 
 # Programming: logic
@@ -105,13 +114,21 @@ set gyro_main_lpf_hz = 80
 set dynamic_gyro_notch_mode = 3D
 set gyro_zero_y = -2
 set gyro_zero_z = 3
+set ins_gravity_cmss =  981.149
 set rssi_adc_channel = 3
 set airspeed_adc_channel = 4
 set acc_hardware = ICM42605
+set acczero_y = 1
+set acczero_z = 34
+set accgain_x = 4090
+set accgain_y = 4094
+set accgain_z = 4091
 set align_mag = CW270FLIP
 set mag_hardware = NONE
+set align_mag_pitch = 1800
+set align_mag_yaw = 900
 set baro_hardware = SPL06
-set motor_pwm_protocol = DSHOT300
+set motor_pwm_protocol = STANDARD
 set failsafe_procedure = RTH
 set servo_lpf_hz = 30
 set small_angle = 180
@@ -143,8 +160,8 @@ set mixer_pid_profile_linking = ON
 
 mmix reset
 
-mmix 0  1.000  0.000  0.000  0.300
-mmix 1  1.000  0.000  0.000 -0.300
+mmix 0  1.000  0.000  0.000  0.000
+mmix 1  1.000  0.000  0.000  0.000
 
 # Mixer: servo mixer
 smix reset
@@ -177,8 +194,8 @@ mmix 2  1.000  0.000  1.333  0.000
 # Mixer: servo mixer
 smix reset
 
-smix 0 1 2 -100 0 -1
-smix 1 4 2 -100 0 -1
+smix 0 1 2 -50 0 -1
+smix 1 4 2 -50 0 -1
 smix 2 1 29 -75 0 -1
 smix 3 4 29 70 0 -1
 smix 4 2 0 50 0 -1
@@ -247,9 +264,10 @@ battery_profile 3
 
 
 # restore original profile selection
-mixer_profile 1
-profile 1
+mixer_profile 2
+profile 2
 battery_profile 1
 
 # save configuration
 save
+
