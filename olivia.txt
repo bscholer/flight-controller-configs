@@ -1,9 +1,8 @@
 # diff all defaults
 
 # version
-# Betaflight / STM32F405 (S405) 4.4.1 Apr 11 2023 / 08:51:50 (e43d591b2) MSP API: 1.45
-
-# config: YES
+# Betaflight / STM32F405 (S405) 4.5.1 Dec 20 2024 / 19:44:09 (77d01ba3b) MSP API: 1.46
+# config rev: 3c54148
 
 # start the command batch
 batch start
@@ -17,18 +16,18 @@ mcu_id 004000525553501920323156
 signature 
 
 # name: Olivia
+#feature -GPS
+#feature -LED_STRIP
+#feature -OSD
 
 # feature
-feature -TELEMETRY
-#feature -LED_STRIP
-#feature TELEMETRY
+feature GPS
 feature LED_STRIP
+feature OSD
 
 # serial
-#serial 0 64 115200 57600 0 115200
-serial 0 0 115200 57600 0 115200
 #serial 1 0 115200 57600 0 115200
-serial 1 0 115200 115200 0 115200
+serial 1 2 115200 9600 0 115200
 #serial 2 0 115200 57600 0 115200
 serial 2 2048 115200 57600 0 115200
 #serial 5 0 115200 57600 0 115200
@@ -46,21 +45,13 @@ map TAER1234
 
 # led
 #led 0 0,0::C:0
-led 0 14,12::C:1
+led 0 0,0::L:0
 #led 1 0,0::C:0
-led 1 15,12::C:1
+led 1 1,0::L:0
 #led 2 0,0::C:0
-led 2 14,13::C:1
+led 2 2,0::L:0
 #led 3 0,0::C:0
-led 3 15,13::C:1
-#led 4 0,0::C:0
-led 4 14,14::C:1
-#led 5 0,0::C:0
-led 5 15,14::C:1
-#led 6 0,0::C:0
-led 6 14,15::C:1
-#led 7 0,0::C:0
-led 7 15,15::C:1
+led 3 3,0::L:0
 
 # aux
 #aux 0 0 0 900 900 0 0
@@ -117,52 +108,64 @@ set acc_calibration = 16,-9,79,1
 set min_check = 1025
 #set max_check = 1900
 set max_check = 1975
+#set failsafe_procedure = DROP
+set failsafe_procedure = GPS-RESCUE
 #set small_angle = 25
 set small_angle = 180
+#set gps_sbas_mode = NONE
+set gps_sbas_mode = WAAS
+#set gps_ublox_use_galileo = OFF
+set gps_ublox_use_galileo = ON
+#set gps_rescue_return_alt = 30
+set gps_rescue_return_alt = 50
 #set gps_rescue_min_sats = 8
 set gps_rescue_min_sats = 7
-#set gps_rescue_allow_arming_without_fix = OFF
-set gps_rescue_allow_arming_without_fix = ON
 #set pid_process_denom = 1
 set pid_process_denom = 2
+#set ledstrip_brightness = 100
+set ledstrip_brightness = 49
 #set osd_units = METRIC
 set osd_units = IMPERIAL
-#set osd_vbat_pos = 234
+#set osd_vbat_pos = 341
 set osd_vbat_pos = 323
-#set osd_rssi_pos = 234
+#set osd_rssi_pos = 341
 set osd_rssi_pos = 56
-#set osd_link_quality_pos = 234
-set osd_link_quality_pos = 2102
-#set osd_flymode_pos = 234
+#set osd_link_quality_pos = 341
+set osd_link_quality_pos = 2103
+#set osd_flymode_pos = 341
 set osd_flymode_pos = 2424
-#set osd_g_force_pos = 234
+#set osd_g_force_pos = 341
 set osd_g_force_pos = 2339
-#set osd_ah_pos = 78
+#set osd_ah_pos = 185
 set osd_ah_pos = 2126
-#set osd_current_pos = 234
+#set osd_current_pos = 341
 set osd_current_pos = 2369
-#set osd_craft_name_pos = 234
-set osd_craft_name_pos = 2092
-#set osd_gps_speed_pos = 234
-set osd_gps_speed_pos = 2390
-#set osd_gps_lon_pos = 234
-set osd_gps_lon_pos = 80
-#set osd_gps_lat_pos = 234
-set osd_gps_lat_pos = 51274
-#set osd_gps_sats_pos = 234
-set osd_gps_sats_pos = 2082
-#set osd_home_dir_pos = 234
-set osd_home_dir_pos = 2139
-#set osd_altitude_pos = 234
+#set osd_craft_name_pos = 341
+set osd_craft_name_pos = 44
+#set osd_gps_speed_pos = 341
+set osd_gps_speed_pos = 2114
+#set osd_gps_lon_pos = 341
+set osd_gps_lon_pos = 2449
+#set osd_gps_lat_pos = 341
+set osd_gps_lat_pos = 2432
+#set osd_gps_sats_pos = 341
+set osd_gps_sats_pos = 2081
+#set osd_home_dir_pos = 341
+set osd_home_dir_pos = 2150
+#set osd_home_dist_pos = 341
+set osd_home_dist_pos = 2145
+#set osd_altitude_pos = 341
 set osd_altitude_pos = 16450
-#set osd_warnings_pos = 14665
+#set osd_warnings_pos = 14772
 set osd_warnings_pos = 14666
-#set osd_avg_cell_voltage_pos = 234
+#set osd_avg_cell_voltage_pos = 341
 set osd_avg_cell_voltage_pos = 2402
-#set osd_rtc_date_time_pos = 234
+#set osd_rtc_date_time_pos = 341
 set osd_rtc_date_time_pos = 5
-#set osd_flip_arrow_pos = 234
+#set osd_flip_arrow_pos = 341
 set osd_flip_arrow_pos = 2414
+#set osd_stat_bitmask = 14124
+set osd_stat_bitmask = 294700
 #set osd_canvas_width = 53
 set osd_canvas_width = 30
 #set osd_canvas_height = 20
@@ -179,7 +182,7 @@ set vtx_power = 4
 set vtx_low_power_disarm = UNTIL_FIRST_ARM
 #set vtx_freq = 0
 set vtx_freq = 5658
-#set vcd_video_system = AUTO
+#set vcd_video_system = HD
 set vcd_video_system = NTSC
 #set craft_name = -
 set craft_name = Olivia
