@@ -18,11 +18,12 @@ signature
 
 # feature
 feature -TELEMETRY
+feature GPS
 feature LED_STRIP
 
 # serial
 serial 0 0 115200 57600 0 115200
-serial 1 0 115200 115200 0 115200
+serial 1 2 115200 57600 0 115200
 serial 2 2048 115200 57600 0 115200
 serial 5 64 115200 57600 0 115200
 
@@ -34,10 +35,10 @@ beacon RX_SET
 map TAER1234
 
 # led
-led 0 0,0::L:0
-led 1 1,0::L:0
-led 2 2,0::L:0
-led 3 3,0::L:0
+led 0 0,0::G:0
+led 1 1,0::G:0
+led 2 2,0::G:0
+led 3 3,0::G:0
 
 # aux
 aux 0 0 0 1700 2100 0 0
@@ -71,6 +72,8 @@ set acc_calibration = 16,-9,79,1
 set min_check = 1025
 set max_check = 1975
 set small_angle = 180
+set gps_sbas_mode = WAAS
+set gps_ublox_use_galileo = ON
 set gps_rescue_min_sats = 7
 set gps_rescue_allow_arming_without_fix = ON
 set pid_process_denom = 2
