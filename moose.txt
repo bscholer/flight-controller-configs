@@ -1,0 +1,287 @@
+# version
+# INAV/SPEEDYBEEF405WING 9.0.0 Dec  7 2025 / 00:24:52 (68546a2e) 
+# GCC-13.2.1 20231009
+
+# start the command batch
+batch start
+
+# reset configuration to default settings
+defaults noreboot
+
+# resources
+
+# Timer overrides
+
+# Outputs [servo]
+servo 1 1000 2000 1500 -100
+servo 2 1000 2000 1500 -100
+
+# safehome
+
+# Fixed Wing Approach
+
+# geozone
+
+# geozone vertices
+
+# features
+feature GPS
+feature PWM_OUTPUT_ENABLE
+
+# beeper
+
+# blackbox
+blackbox NAV_ACC
+blackbox NAV_POS
+blackbox NAV_PID
+blackbox MAG
+blackbox ACC
+blackbox ATTI
+blackbox RC_DATA
+blackbox RC_COMMAND
+blackbox MOTORS
+blackbox -GYRO_RAW
+blackbox -PEAKS_R
+blackbox -PEAKS_P
+blackbox -PEAKS_Y
+blackbox SERVOS
+
+# Receiver: Channel map
+
+# Ports
+serial 4 33554432 115200 115200 0 115200
+serial 5 0 115200 115200 0 115200
+
+# LEDs
+
+# LED color
+
+# LED mode_color
+
+# Modes [aux]
+aux 0 0 1 1300 2100
+aux 1 1 2 900 1700
+aux 2 2 2 1700 2100
+aux 3 13 0 1300 2100
+
+# Adjustments [adjrange]
+
+# Receiver rxrange
+
+# temp_sensor
+
+# Mission Control Waypoints [wp]
+#wp 0 invalid
+
+# OSD [osd_layout]
+osd_layout 0 0 46 0 V
+osd_layout 0 1 21 0 V
+osd_layout 0 3 8 6 V
+osd_layout 0 4 8 6 V
+osd_layout 0 7 25 16 V
+osd_layout 0 9 2 2 V
+osd_layout 0 11 3 3 V
+osd_layout 0 12 3 4 V
+osd_layout 0 13 45 15 V
+osd_layout 0 14 3 11 V
+osd_layout 0 15 3 0 V
+osd_layout 0 22 48 13 V
+osd_layout 0 24 44 14 V
+osd_layout 0 28 3 17 V
+osd_layout 0 30 13 17 V
+osd_layout 0 32 27 0 V
+osd_layout 0 38 27 1 V
+osd_layout 0 40 44 16 V
+osd_layout 0 97 41 17 V
+osd_layout 0 109 44 4 V
+
+# Programming: logic
+
+# Programming: global variables
+
+# Programming: PID controllers
+
+# OSD: custom elements
+
+# master
+set gyro_main_lpf_hz = 25
+set dynamic_gyro_notch_q = 250
+set dynamic_gyro_notch_min_hz = 30
+set gyro_zero_x = -2
+set gyro_zero_y = -2
+set gyro_zero_z = 6
+set ins_gravity_cmss =  981.308
+set gyro_adaptive_filter_min_hz = 20
+set acc_hardware = ICM42605
+set acczero_x = -1
+set acczero_y = 2
+set acczero_z = 50
+set accgain_x = 4091
+set accgain_y = 4097
+set accgain_z = 4093
+set align_mag = CW270FLIP
+set mag_hardware = NONE
+set baro_hardware = SPL06
+set pitot_hardware = VIRTUAL
+set blackbox_rate_denom = 2
+set motor_pwm_protocol = STANDARD
+set failsafe_procedure = RTH
+set align_board_yaw = 1800
+set small_angle = 180
+set applied_defaults = 3
+set gps_sbas_mode = WAAS
+set gps_ublox_use_galileo = ON
+set gps_ublox_use_beidou = ON
+set gps_ublox_use_glonass = ON
+set airmode_type = STICK_CENTER_ONCE
+set nav_wp_radius = 800
+set nav_wp_max_safe_distance = 500
+set nav_rth_allow_landing = FS_ONLY
+set nav_rth_altitude = 5000
+set nav_fw_control_smoothness = 2
+set nav_fw_launch_accel = 1750
+set nav_fw_launch_max_angle = 180
+set nav_fw_launch_motor_delay = 100
+set nav_fw_launch_spinup_time = 200
+set nav_fw_launch_min_time = 1000
+set nav_fw_launch_timeout = 15000
+set nav_fw_launch_max_altitude = 5000
+set osd_video_system = AVATAR
+set tz_automatic_dst = USA
+
+# control_profile
+control_profile 1
+
+set fw_p_pitch = 15
+set fw_i_pitch = 5
+set fw_d_pitch = 5
+set fw_ff_pitch = 80
+set fw_p_roll = 15
+set fw_i_roll = 3
+set fw_d_roll = 7
+set fw_p_yaw = 50
+set fw_i_yaw = 0
+set fw_d_yaw = 20
+set fw_ff_yaw = 255
+set dterm_lpf_hz = 10
+set fw_turn_assist_pitch_gain =  0.400
+set nav_fw_pos_z_p = 35
+set nav_fw_pos_xy_p = 55
+set d_boost_min =  1.000
+set d_boost_max =  1.000
+set rc_expo = 30
+set rc_yaw_expo = 30
+set roll_rate = 18
+set pitch_rate = 9
+set yaw_rate = 3
+
+# control_profile
+control_profile 2
+
+set fw_p_pitch = 15
+set fw_i_pitch = 5
+set fw_d_pitch = 5
+set fw_ff_pitch = 80
+set fw_p_roll = 15
+set fw_i_roll = 3
+set fw_d_roll = 7
+set fw_p_yaw = 50
+set fw_i_yaw = 0
+set fw_d_yaw = 20
+set fw_ff_yaw = 255
+set dterm_lpf_hz = 10
+set fw_turn_assist_pitch_gain =  0.400
+set nav_fw_pos_z_p = 35
+set nav_fw_pos_xy_p = 55
+set d_boost_min =  1.000
+set d_boost_max =  1.000
+set rc_expo = 30
+set rc_yaw_expo = 30
+set roll_rate = 18
+set pitch_rate = 9
+set yaw_rate = 3
+
+# control_profile
+control_profile 3
+
+set fw_p_pitch = 15
+set fw_i_pitch = 5
+set fw_d_pitch = 5
+set fw_ff_pitch = 80
+set fw_p_roll = 15
+set fw_i_roll = 3
+set fw_d_roll = 7
+set fw_p_yaw = 50
+set fw_i_yaw = 0
+set fw_d_yaw = 20
+set fw_ff_yaw = 255
+set dterm_lpf_hz = 10
+set fw_turn_assist_pitch_gain =  0.400
+set nav_fw_pos_z_p = 35
+set nav_fw_pos_xy_p = 55
+set d_boost_min =  1.000
+set d_boost_max =  1.000
+set rc_expo = 30
+set rc_yaw_expo = 30
+set roll_rate = 18
+set pitch_rate = 9
+set yaw_rate = 3
+
+# mixer_profile
+mixer_profile 1
+
+set platform_type = AIRPLANE
+set has_flaps = ON
+set model_preview_type = 28
+
+# Mixer: motor mixer
+
+mmix reset
+
+mmix 0  1.000  0.000  0.000  0.000
+mmix 1  1.000  0.000  0.000  0.000
+
+# Mixer: servo mixer
+smix reset
+
+smix 0 1 0 100 0 -1
+smix 1 2 0 100 0 -1
+smix 2 3 1 50 0 -1
+smix 3 3 2 -50 0 -1
+smix 4 4 1 -50 0 -1
+smix 5 4 2 -50 0 -1
+
+# mixer_profile
+mixer_profile 2
+
+
+# Mixer: motor mixer
+
+# Mixer: servo mixer
+
+# battery_profile
+battery_profile 1
+
+set bat_cells = 4
+set battery_capacity = 3300
+set throttle_idle =  5.000
+set nav_fw_launch_thr = 2000
+set nav_fw_launch_idle_thr = 1300
+
+# battery_profile
+battery_profile 2
+
+set throttle_idle =  5.000
+
+# battery_profile
+battery_profile 3
+
+set throttle_idle =  5.000
+
+# restore original profile selection
+control_profile 1
+mixer_profile 1
+battery_profile 1
+
+# save configuration
+save
